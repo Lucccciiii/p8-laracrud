@@ -25,38 +25,19 @@ class EmployeeController extends Controller
 
     public function store(request $request): RedirectResponse
     {
+        $employee = new Employee();
+        $employee->name = $request->name;
         Employee::create([
             'name' => request('name'),
             'password' => request('password'),
             'email' => request('email'),
             'salary' => request('salary'),
             'job' => request('job'),]);
-       /* $post = $request->validate([
-            'name' => 'required|max:255',
-            'password' => 'required|max:255',
-            'email' => 'required|max:255|email:rfd,dns',
-            'salary' => 'required',
-            'job' => 'required|max:255'
-        ]);
-        if($post->fails()){
-            return view('employees.create');
-        }
-        else{
-            $post::create([
-                'name' => $post('name'),
-                'password' => $post('password'),
-                'email' => $post('email'),
-                'salary' => $post('salary'),
-                'job' => $post('job'),
-            ]);
-            $name = $post->input('name');
-            $passhashed = Hash::make('password', ['rounds' => 12,]);
-            $email = $post->input('email');
-            $salary = $post->input('salary');
-            $job = $post->input('job');
-            $data = array('Name'=> $name,'Password'=>$passhashed, 'Email'=> $email,'Salary' => $salary, 'job' => $job);
-            DB::table('Employees')->insert($data);
         return redirect('/employees.index');
-        }*/
+    }
+    public function show(id $id) :RedirectResponse
+    {
+        $data = Employee::where('id',$id)->get();
+        return view('/employees.show', compact('data'));
     }
 }
