@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->string('Name');
+            $table->string('Password');
             $table->string('Email');
             $table->integer('Salary');
             $table->string('Job');

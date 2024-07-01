@@ -1,5 +1,6 @@
 <?php
 
+namespace Database\Seeders;
 
 use App\Models\Employee;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;

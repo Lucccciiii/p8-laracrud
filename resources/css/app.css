@@ -5,3 +5,9 @@
 nav ul li{
 @apply flex mr-5
 }
+*{
+    @apply text-neon-purple
+}
+.content-wrap{
+    @apply pb-24
+}

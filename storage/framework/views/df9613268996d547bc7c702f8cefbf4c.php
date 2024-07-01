@@ -8,7 +8,7 @@
     <?php echo app('Illuminate\Foundation\Vite')('resources/css/app.css'); ?>
     <title>Your Company Inc</title>
 </head>
-<body class="h-full m-0">
+<body class="h-full m-0 bg-black">
 <nav class="flex items-center justify-between flex-row">
     <ul class="flex mr-7 ml-5 justify-between">
         <li><a href="<?php echo e(url('/')); ?>">Home</a></li>
@@ -19,7 +19,7 @@
 </nav>
 <?php echo e($slot); ?>
 
-<footer class="bg-gray-500 bottom-0 h-24">
+<footer class="absolute bottom-0 h-24 w-full">
     <ul class="flex flex-row justify-between">
         <li><a href="<?php echo e(url('/')); ?>">Social 1</a></li>
         <li><a href="<?php echo e(url('/')); ?>">Social 2</a></li>
