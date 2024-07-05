@@ -4,7 +4,7 @@
             <ul>
                 @foreach($data as $employee)
                     <li>
-                        <a>
+                        <a href="{{ url("/employees/$employee->id") }}">
                         {{$employee['Name']}}
                         </a>
                     </li>

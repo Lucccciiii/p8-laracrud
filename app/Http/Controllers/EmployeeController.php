@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Employee;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -25,19 +26,18 @@ class EmployeeController extends Controller
 
     public function store(request $request): RedirectResponse
     {
-        $employee = new Employee();
-        $employee->name = $request->name;
-        Employee::create([
-            'name' => request('name'),
-            'password' => request('password'),
-            'email' => request('email'),
-            'salary' => request('salary'),
-            'job' => request('job'),]);
+        $employee = new Employee([
+            'Name' => request('name'),
+            'Password' => request('password'),
+            'Email' => request('email'),
+            'Salary' => request('salary'),
+            'Job' => request('job'),]);
+        $employee->save();
         return redirect('/employees.index');
     }
-    public function show(id $id) :RedirectResponse
+    public function show($id): View
     {
-        $data = Employee::where('id',$id)->get();
+        $data = Employee::fir();
         return view('/employees.show', compact('data'));
     }
 }
